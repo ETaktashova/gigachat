@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  gigachat:
+    image: gigachat
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    command: ['python', '/srv/main.py', '-c', 'classes2.xlsx', '-s', 'example2.xlxs']
+
+    env_file:
+      - .env
+    volumes:
+      - ./src:/srv
